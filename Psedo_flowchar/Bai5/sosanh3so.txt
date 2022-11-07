@@ -1,0 +1,9 @@
+let a, b, c
+let maxValue = a
+if(b > maxValue) {
+    maxValue = b
+}
+if(c > maxValue) {
+    maxValue = c
+}
+console.log(maxValue);
