@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <button id="btnTong">tính tổng</button>
+    <button id="btnHieu">tính tổng</button>
+    <button id="btnTich">tính tổng</button>
+    <button id="btnThuong">tính tổng</button>
+    <p id="result" >Result Division: </p>
+
+    <script>
+        
+        let btnTong = document.querySelector('#btnTong')
+        let btnHieu = document.querySelector('#btnHieu')
+        let btnTich = document.querySelector('#btnTich')
+        let btnThuong = document.querySelector('#btnThuong')
+        
+        btnTong.addEventListener('click', function(){
+            let ip1 = +document.querySelector('#input1').value
+            let ip2 = +document.querySelector('#input2').value
+            document.querySelector('#result').innerHTML += ip1 + ip2
+        })
+         btnHieu.addEventListener('click', function(){
+            let ip1 = +document.querySelector('#input1').value
+            let ip2 = +document.querySelector('#input2').value
+            document.querySelector('#result').innerHTML += ip1 - ip2
+         })
+         btnTich.addEventListener('click', function(){
+            let ip1 = +document.querySelector('#input1').value
+            let ip2 = +document.querySelector('#input2').value
+            document.querySelector('#result').innerHTML += ip1 * ip2
+         })
+         btnThuong.addEventListener('click', function(){
+            let ip1 = +document.querySelector('#input1').value
+            let ip2 = +document.querySelector('#input2').value
+            document.querySelector('#result').innerHTML += ip1 / ip2
+         })
+        
+    </script>
+</body>
+</html>

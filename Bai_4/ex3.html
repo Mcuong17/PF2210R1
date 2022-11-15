@@ -10,7 +10,7 @@
     <script>
         let tienVay = +prompt('Bạn muốn vay bao nhiêu?')
         let soNam = +prompt('Bạn muốn trả sau bao nhiêu năm?')
-        let laiSuat = 0.069
+        let laiSuat = +prompt('nhập lãi suất')
         let tienLai = laiSuat * tienVay
         console.log(tienLai);
         let tienTra = tienVay + soNam * tienLai
