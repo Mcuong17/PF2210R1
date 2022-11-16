@@ -5,15 +5,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .app {
+            width: 500px;
+            height: 250px;
+            margin: 20px auto;
+            background: linear-gradient(#42275a, #734b6d);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: chocolate;
+        }
+        .form-input {
+            display: inline-block;
+        }
+
+        .form-input input {
+            display:block;
+            margin: 0 auto;
+            height: 25px;
+            border: 1px solid salmon;
+            outline: none;
+            border-radius: 7px;
+            margin-bottom: 20px;
+            padding: 0 4px;
+            font-size: 16px;
+        }
+
+        .form-btn {
+            float: right;
+        }
+        .form-btn a {
+            display: block;
+            width: auto;
+            height: auto;
+            text-align: center;
+            margin: 8px 90px 8px 0;
+            padding: 6px 4px;
+            border: 1px solid;
+            border-radius: 10px;
+            outline: none;
+            text-decoration: none;
+            color: rgb(37, 223, 192);
+            background-color: #000;
+        }
+
+        .form-btn a:hover {
+            opacity: 0.8;
+        }
+
+        .form-result {
+            margin-top: 30px;
+        }
+
+        .form-result label {
+            font-size: 20px;
+        }
+        #result {
+            width: 60px;
+            height: 20px;
+            border: 1px solid salmon;
+            outline: none;
+            border-radius: 7px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="input1">
-    <input type="text" id="input2">
-    <button id="btnTong">tính tổng</button>
-    <button id="btnHieu">tính tổng</button>
-    <button id="btnTich">tính tổng</button>
-    <button id="btnThuong">tính tổng</button>
-    <p id="result" >Result Division: </p>
+    <div class="app">
+        <h2>Caculator</h2>
+        <div class="form-input">
+            <input type="number" id="input1" placeholder="type here...">
+            <input type="number" id="input2" placeholder="type here...">
+        </div>
+        <div class="form-btn">
+            <a href="#" id="btnTong">Addition(+)</a>
+            <a href="#" id="btnHieu">Subbtraction(-)</a>
+            <a href="#" id="btnTich">Multiplication(X)</a>
+            <a href="#" id="btnThuong">Division(/)</a>
+        </div>
+        <div class="form-result" >
+            <label for="result">Result</label>
+            <input id="result" placeholder="result.."></input>
+        </div>
+    </div>
 
     <script>
         
@@ -21,26 +98,38 @@
         let btnHieu = document.querySelector('#btnHieu')
         let btnTich = document.querySelector('#btnTich')
         let btnThuong = document.querySelector('#btnThuong')
+
+        function clearInput(value) {
+            document.querySelector(value).value = ''
+        }
         
         btnTong.addEventListener('click', function(){
             let ip1 = +document.querySelector('#input1').value
             let ip2 = +document.querySelector('#input2').value
-            document.querySelector('#result').innerHTML += ip1 + ip2
+            document.querySelector('#result').value = ip1 + ip2
+            clearInput('#input1')
+            clearInput('#input2')
         })
          btnHieu.addEventListener('click', function(){
             let ip1 = +document.querySelector('#input1').value
             let ip2 = +document.querySelector('#input2').value
-            document.querySelector('#result').innerHTML += ip1 - ip2
+            document.querySelector('#result').value = ip1 - ip2
+            clearInput('#input1')
+            clearInput('#input2')
          })
          btnTich.addEventListener('click', function(){
             let ip1 = +document.querySelector('#input1').value
             let ip2 = +document.querySelector('#input2').value
-            document.querySelector('#result').innerHTML += ip1 * ip2
+            document.querySelector('#result').value = ip1 * ip2
+            clearInput('#input1')
+            clearInput('#input2')
          })
          btnThuong.addEventListener('click', function(){
             let ip1 = +document.querySelector('#input1').value
             let ip2 = +document.querySelector('#input2').value
-            document.querySelector('#result').innerHTML += ip1 / ip2
+            document.querySelector('#result').value = (ip1 / ip2).toFixed(4)
+            clearInput('#input1')
+            clearInput('#input2')
          })
         
     </script>

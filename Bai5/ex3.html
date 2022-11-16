@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            margin: 0 auto;
+        }
+        .result {
+            display: block;
+            width: 90%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Kiểm tra năm nhuận</h3>
+        <input type="text" class="year">
+        <button class="btn" >Kiểm tra</button>
+        <div class="result" >
+            
+        </div>
+        <button class="btn-reset" >Reset</button>
+    </div>
+</body>
+</html>
+<script>
+    let btn = document.querySelector('.btn')
+    let btnReset = document.querySelector('.btn-reset')
+    btn.addEventListener('click', function(){
+        let inputYear = +document.querySelector('.year').value
+        let result = document.querySelector('.result')
+        if(inputYear % 4 == 0) {
+           if(inputYear % 100 == 0) {
+                if(inputYear % 400 == 0) {
+                    result.innerHTML += ` ${inputYear} là năm nhuận  `
+                    clearInput('.year')
+                    
+                } else {
+                    result.innerHTML += ` <p> ${inputYear} không là năm nhuận </p> `
+                    clearInput('.year')
+                }
+           }else {
+            result.innerHTML += ` <p> ${inputYear} là năm nhuận </p> `
+            clearInput('.year')
+           }
+        } else {
+            result.innerHTML += ` <p> ${inputYear} không là năm nhuận </p> `
+            clearInput('.year')
+        }
+    })
+
+    function clearInput(value) {
+        document.querySelector(value).value = ''
+    }
+    btnReset.onclick = function(){
+        let result = document.querySelector('.result').innerHTML = `<p></p>`
+    }
+</script>
