@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <label>Nhập chiều cao</label>
+        <input type="number" class="chieu-cao">
+        <label>Nhập cân nặng</label>
+        <input type="number" class="can-nang">
+        <button>Tính</button>
+        <p id="result" >
+
+        </p>
+        <script>
+            let btnTinh = document.querySelector('button')
+            btnTinh.onclick = function() {
+                let chieuCao = +document.querySelector('.chieu-cao').value
+                let canNang = +document.querySelector('.can-nang').value
+                let result = document.querySelector('#result')
+                let BMI = canNang / (chieuCao**2)
+                if( BMI < 16) {
+                    result.innerText += 'Gầy'
+                } else if(BMI >= 16 && BMI < 25) {
+                    result.innerText += 'Bình thường'
+                } else if( BMI >25) {
+                    result.innerText += 'Béo phì'
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let accountUser = prompt('Nhập tài khoản')
+        if(accountUser == 'Admin' || accountUser =='admin') {
+            let password = prompt('Nhập mật khẩu')
+            if( password == 'TheMaster') {
+                alert('Welcome')
+            } else if(password == '') {
+                alert('Canceled')
+            } else {
+                alert('Wrong Password')
+            }
+        } else if(accountUser == '') {
+            alert('Canceled')
+        } else {
+            alert('I dont know you?? Get out my way man!')
+        }
+    </script>
+</body>
+</html>

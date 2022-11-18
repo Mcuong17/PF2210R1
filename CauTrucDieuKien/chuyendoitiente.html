@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            max-width: 60%;
+            display: flex;
+            justify-content: space-around;
+        }
+        input {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form-list">
+            <label>Amount</label>
+            <input type="number" class="quantity">
+        </div>
+        <div class="form-list">
+            <label>From Currentcy</label>
+            <select id="fromCurrentcy">
+                <option value="VND" >VietNam</option>
+                <option value="USD" >USD</option>
+            </select>
+        </div>
+        <div class="form-list">
+            <label>To Currency</label>
+            <select id="toCurrentcy">
+                <option value="USD" >USD</option>
+                <option value="VND" >VietNam</option>
+            </select>
+        </div>
+        <button id="convert">Convert</button>
+    </div>
+    <p id="result">
+
+    </p>
+
+    <script>
+        let btnConvert = document.querySelector('#convert')
+        btnConvert.addEventListener('click', function(){
+            let quantity = +document.querySelector('.quantity').value
+            let fromCurrentcy = document.querySelector('#fromCurrentcy').value
+            let toCurrentcy = document.querySelector('#toCurrentcy').value
+            let htmls = ''
+            if(fromCurrentcy == toCurrentcy) {
+                htmls = quantity
+            } else if(fromCurrentcy == 'VND' && toCurrentcy == 'USD') {
+                htmls = quantity / 24000
+            }
+            document.querySelector('#result').innerText = htmls
+            document.querySelector('.quantity').value = '' 
+        })
+    </script>
+</body>
+</html>

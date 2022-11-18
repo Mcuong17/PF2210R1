@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            margin-top: 10px;
+        }
+        #result {
+            color: crimson;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>Tính điểm đại học khối D</h2>
+        <div class="form-group">
+            <label for=""> Môn Toán </label>
+            <input type="number" class="pointToan">
+            <label for=""> Môn Văn </label>
+            <input type="number" class="pointVan">
+            <label for=""> Môn Anh </label>
+            <input type="number" class="pointAnh">
+            <label for=""> Khu vực </label>
+            <select>
+                <option >KV1</option>
+                <option >KV2</option>
+                <option >KV2-NT</option>
+                <option >KV3</option>
+            </select>
+            <button class="btnTinh" >Tính điểm</button>
+        </div>
+        <p id="result" >
+
+        </p>
+    </div>
+    <script>
+        const btnTinh = document.querySelector('.btnTinh')
+        btnTinh.onclick = function() {
+            const pointToan = +document.querySelector('.pointToan').value
+            const pointVan = +document.querySelector('.pointVan').value
+            const pointAnh = +document.querySelector('.pointAnh').value
+            const optionKv = document.querySelector('select').value
+            let pointTotal = 0
+            if(pointToan != '' && pointVan != '' && pointAnh != '') {
+                switch(optionKv) {
+                    case 'KV1': 
+                        pointTotal += (pointToan + pointVan + pointAnh) + 0.75
+                        break;
+                    case 'KV2': 
+                        pointTotal += (pointToan + pointVan + pointAnh) + 0.25
+                        break;
+                    case 'KV2-NT': 
+                        pointTotal += (pointToan + pointVan + pointAnh) + 0.5
+                        break;
+                    case 'KV3': 
+                         pointTotal += (pointToan + pointVan + pointAnh)
+                        break;
+                    default :
+                        alert('Xảy ra lỗi');
+                        break;
+                }
+                document.getElementById('result').innerText = 'Tổng điểm đại học khối D của bạn là: ' + pointTotal
+                clearInput('.pointToan','.pointVan','.pointAnh')
+            } else {
+                alert('Vui lòng điền đủ thông tin')
+            }
+        }
+
+        function clearInput(a,b,c,d) {
+            document.querySelector(a).value = ''
+            document.querySelector(b).value = ''
+            document.querySelector(c).value = ''
+        }
+    </script>
+</body>
+</html>

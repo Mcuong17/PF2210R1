@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tính số ngày trong tháng</h2>
+    <label> Nhập tháng</label>
+    <input type="number">
+    <button>Tính số ngày</button>
+    <p id="result" >
+
+    </p>
+    <script>      
+        let btnTinh = document.querySelector('button')
+        btnTinh.addEventListener('click', function() {
+            let result = document.querySelector('#result')
+            let inputDay = +document.querySelector('input').value
+            if( inputDay == '' || inputDay <= 0 || inputDay > 12) {
+                alert('Error')
+            } else {
+                switch(inputDay) {
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        result.innerText = 'Tháng ' + inputDay + ' có 31 ngày'
+                        document.querySelector('input').value = ''
+                        break;
+                    case 2 :
+                        result.innerText = 'Tháng ' + inputDay + ' có 28 hoặc 29 ngày'
+                        document.querySelector('input').value = ''
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        result.innerText = 'Tháng ' + inputDay + ' có 30 ngày'
+                        document.querySelector('input').value = ''
+                        break;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

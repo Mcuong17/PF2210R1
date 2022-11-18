@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Check</title>
+    <style>
+        .app {
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(#c33764, #1d2671);
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+        .form-body {
+            text-align: center;
+            margin-bottom: 20px ;
+        }
+        .content {
+            display: none;
+            list-style: none;
+            width: 90%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .content li {
+            color: #fff;
+            padding: 10px 0;
+        }
+        .fruit-input {
+            height: 24px;
+            padding: 4px;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+        }
+        .btn-check{
+            padding: 6px;
+            background: dodgerblue;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .btn-delete {
+            padding: 6px;
+            background-color: #c33764;
+            border: none;
+            border-radius:6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h2>Fruit Price...</h2>
+        <div class="form-body">
+            <input type="text" class="fruit-input" placeholder="type fruit..">
+            <button class="btn-check">Check Prices</button>
+            <ul class="content">
+
+            </ul>
+            <div>
+                <button class="btn-delete" >Delete Cart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btnCheck = document.querySelector('.btn-check')
+        let listFruit = document.querySelector('.content')
+        let price20000 = 20000;
+        let price30000 = 30000;
+        let price40000 = 40000;
+        let price50000 = 50000;
+        // check giá
+        btnCheck.addEventListener('click', function(){
+            let fruitName = document.querySelector('.fruit-input').value
+            let fruitPrice = document.querySelector('.content')
+            switch(fruitName) {
+                case ('Ổi' && 'ổi') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Ổi: <span> ${price20000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Dưa Hấu' && 'dưa hấu') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Dưa Hấu: <span> ${price20000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Táo' && 'táo') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Táo: <span> ${price30000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Xoài' && 'xoài') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Xoài: <span> ${price30000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Cam' && 'cam') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Cam: <span> ${price40000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Chôm Chôm' && 'chôm chôm') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Chôm Chôm: <span> ${price40000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('Măng Cụt' && 'măng cụt') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Giá Măng Cụt: <span> ${price50000} </span> VNĐ/kg </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                case ('') :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> * Please input Fruit!! </li>`
+                    document.querySelector('.fruit-input').value = ''
+                    break;
+                default :
+                    listFruit.style.display = 'inline-block'
+                    fruitPrice.innerHTML += `<li> Bán hết! </li>`
+                    document.querySelector('.fruit-input').value = ''
+            }
+        })
+        
+        const btnDelete = document.querySelector('.btn-delete')
+        btnDelete.addEventListener('click', function(){
+            isConfirm = confirm('Xóa hết hoa quả đã check ?')
+            if(isConfirm) {
+                const listItems = document.querySelectorAll('li')
+                for(const item of listItems) {
+                    item.remove()
+                }
+                listFruit.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+</html>
