@@ -11,7 +11,7 @@
     <label> Nhập tháng</label>
     <input type="number">
     <button>Tính số ngày</button>
-    <p id="result" >
+    <p id="result" style="color: crimson;" >
 
     </p>
     <script>      
@@ -21,6 +21,7 @@
             let inputDay = +document.querySelector('input').value
             if( inputDay == '' || inputDay <= 0 || inputDay > 12) {
                 alert('Error')
+                document.querySelector('input').value = ''
             } else {
                 switch(inputDay) {
                     case 1:
