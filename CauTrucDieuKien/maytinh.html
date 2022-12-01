@@ -65,83 +65,42 @@
 
 <body>
     <div class="app">
-        <input class="result" value="0">
+        <p class="result">
 
-        </input>
+        </p>
         <div class="button-group">
             <div class="button-list">
-                <button class="btn-item" onclick="inputNumber(1)">1</button>
-                <button class="btn-item" onclick="inputNumber(2)">2</button>
-                <button class="btn-item"onclick="inputNumber(3)">3</button>
-                <button class="btn-item" onclick="inputPhepTinh('+')">+</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">1</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">2</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">3</button>
+                <button class="btn-item">+</button>
             </div>
             <div class="button-list">
-                <button class="btn-item"onclick="inputNumber(4)">4</button>
-                <button class="btn-item"onclick="inputNumber(5)">5</button>
-                <button class="btn-item"onclick="inputNumber(6)">6</button>
-                <button class="btn-item" onclick="inputPhepTinh('-')">-</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">4</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">5</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">6</button>
+                <button class="btn-item">-</button>
             </div>
             <div class="button-list">
-                <button class="btn-item"onclick="inputNumber(7)">7</button>
-                <button class="btn-item"onclick="inputNumber(8)">8</button>
-                <button class="btn-item"onclick="inputNumber(9)">9</button>
-                <button class="btn-item" onclick="inputPhepTinh('x')">x</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">7</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">8</button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">9</button>
+                <button class="btn-item">x</button>
             </div>
             <div class="button-list">
-                <button class="btn-item" onclick="clear()">C</button>
-                <button class="btn-item"onclick="inputNumber(0)">0</button>
-                <button class="btn-item" onclick="tinh()">=</button>
-                <button class="btn-item" onclick="inputPhepTinh(':')">:</button>
+                <button class="btn-item"> C </button>
+                <button class="btn-item btn-number" onclick="btnNumber(1)">0</button>
+                <button class="btn-item"> = </button>
+                <button class="btn-item">:</button>
             </div>
         </div>
     </div>
     <script>
-        let number1, number2, flag
-        let inputResult = document.getElementsByClassName('.result')
-        function inputNumber(number) {
-            if (flag) {
-                flag = number2
-                inputResult.innerText = number2
-            } else {
-                flag = number1
-            }
-        }
-        function inputPhepTinh(phepTinh) {
-            flag = phepTinh
-        }
-        function clear() {
-            number1 = undefined
-            number2 = undefined
-            flag = undefined
-        }
-        // khi ấn dấu = 
-        function tinh() {
-            let result
-            switch (flag) {
-                case '+':
-                    result = number1 + number2
-                    break;
-                case '-':
-                    result = number1 - number2
-                    break;
-                case 'x':
-                    result = number1 * number2
-                    break;
-                case ':':
-                    result = number1 / number2
-                    break;
-            }
-            inputResult.innerText = `${number1} ${flag} ${number2} = ${result}`
-        }
 
-        let x = 0
-        if(x++ >0) {
-            x++
-        }
-        else{
-            console.log('a');
-        }
-        console.log(x);
+       function btnNumber(number) {
+        let result = document.querySelector('.result')
+        result.innerText = number
+       }
     </script>
 </body>
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  indexOf: tìm kiếm 1 phần tử
+        concat: gộp 2 mảng
+        push: thêm một phần tử vào cuối */
+        // let arr = [4, 5, 8, 9, 6, 5, 7, 3];
+
+        /* for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 !== 0) {
+                document.write(` <h1> ${arr[i]} </h1> `)
+            } else {
+                document.write(` <h2> ${arr[i]} </h2> `)
+            }
+        } */
+        // let tong = 0;
+        // let dem = 0;
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr[i] % 3 == 0) {
+        //         tong += arr[i]
+        //         dem++;
+        //     }
+        // }
+        // document.write(tong / dem)
+
+        /*  let max = arr[0];
+         let max2 = 0
+         for (let i = 0; i < arr.length; i++) {
+             if (max < arr[i]) {
+                 max = arr[i];
+             } else if (max2 < max && max2 < arr[i]) {
+                 max2 = arr[i]
+             }
+         }
+         console.log(max2); */
+
+        /*  let a = prompt('Nhập a')
+         let temp = -1
+         for (let i = 0; i < arr.length; i++) {
+             if (arr[i] == a) {
+                 temp = i;
+             }
+         }
+         console.log(temp); */
+
+        let n = +prompt('nhập n')
+        let arr = []
+        let i = 0
+        while (i < n) {
+            let a = +prompt(`Nhập phần tử thứ: ${i + 1}`);
+            arr.push(a);
+            i++;
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

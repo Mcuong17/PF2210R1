@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn"> Chơi </button>
+    <script>
+        let btn = document.querySelector('.btn')
+
+        function play() {
+
+        }
+        btn.onclick = function () {
+            let soDem = +prompt("Bạn muốn đoán trong khoảng nào")
+            let lanDem = 0
+            let soNgauNhien = Math.floor(Math.random() * soDem)
+            alert("Đã tạo số ngẫu nhiên, mời đoán");
+            while (true) {
+                lanDem++;
+                let soNhap = +prompt(`Bạn đã đoán ${lanDem} lần, còn ${3 - lanDem} lần nữa `)
+                console.log(soNhap, soNgauNhien);
+                if (soNhap <= soNgauNhien) {
+                    if (soNhap === soNgauNhien) {
+                        alert("Bạn đã đoán đúng!!!!")
+                        break;
+                    }
+                    if (soNhap > soNgauNhien) {
+                        alert("Số bạn đoán lớn hơn số đúng")
+                    }
+                    if (soNhap < soNgauNhien) {
+                        alert("Số bạn nhập nhỏ hơn số đúng")
+                    }
+                }
+                if (lanDem === 3) {
+                    alert("Bạn đã đoán quá 3 lần")
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
