@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <script>
         /*  indexOf: tìm kiếm 1 phần tử
         concat: gộp 2 mảng
@@ -52,15 +53,89 @@
          }
          console.log(temp); */
 
-        let n = +prompt('nhập n')
-        let arr = []
-        let i = 0
-        while (i < n) {
-            let a = +prompt(`Nhập phần tử thứ: ${i + 1}`);
-            arr.push(a);
-            i++;
+        /*  let n = +prompt('nhập n')
+         let arr = []
+         let i = 0
+         while (i < n) {
+             let a = +prompt(`Nhập phần tử thứ: ${i + 1}`);
+             arr.push(a);
+             i++;
+         } */
+        //console.log(arr);
+        // đếm số phần tử trùng nhau trong mảng
+        let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // let count = 0
+        // for (let i = 0; i < arr.length; i++) {
+        //     for (let j = i + 1; j < arr.length; i++) {
+        //         if (arr[i] == arr[j]) {
+        //             count++;
+        //             break
+        //         }
+        //     }
+        // }
+        // console.log(count);
+        // for (let i = 0; i < arr1.length; i++) {
+        //     document.write(`<table border = 1; cellpadding = 10 cellspacing = 10 > <tr>`)
+        //     for (let j = 0; j < arr2.length; j++) {
+        //         // console.log(` ${arr1[i]} x ${arr2[j]} = ${arr1[i] * arr2[j]} `);
+        //         document.write(`
+        //             <td> ${arr1[i]} x ${arr2[j]} = ${arr1[i] * arr2[j]} </td>
+        //         `)
+        //     }
+        //     document.write(` </tr> <table>`)
+        // }
+        let numbers = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [0, 0, 0]
+        ]
+        // for (let i = 0; i < numbers.length; i++) {
+        //     for (let j = 0; j < numbers[i].length; j++) {
+        //         let max = numbers[0][0]
+        //         if (numbers[i][j] > max) {
+        //             max = numbers[i][j]
+        //         }
+        //     }
+        //     console.log(max);
+        // }
+        /* let sumHang = 0;
+        let sumCot = 0;
+        let sumDuongCheoChinh = 0;
+        let sumDuongCheoPhu = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            for (let j = 0; j < numbers[i].length; j++) {
+                // sumHang += numbers[i][j];
+                // sumCot += numbers[j][i];
+                if (i == j) {
+                    sumDuongCheoChinh += numbers[i][j]
+                }
+                // sumDuongCheoChinh += numbers[i + 1][j + 1]
+                sumDuongCheoPhu += numbers[i][numbers.length - i - 1]
+            }
         }
-        console.log(arr);
+        console.log(sumDuongCheoChinh, sumDuongCheoPhu); */
+        let m = +prompt("Nhập số hàng");
+        let n = +prompt("Nhập số cột");
+        let arr = [];
+        let tonghang = 0;
+        for (let i = 0; i < m; i++) {
+            arr[i] = [];
+            for (let j = 0; j < n; j++) {
+                arr[i][j] = +prompt("Nhập phần tử")
+
+            }
+        }
+        let max = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                tonghang += arr[i][j];
+                if (max > tonghang) {
+                    max = tonghang;
+                }
+            }
+        }
+        console.log(tonghang);
     </script>
 </body>
 

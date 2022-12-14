@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-group {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="">Nhập vào a: </label>
+        <input type="text" class="txtA">
+        <label for="">Nhập vào b: </label>
+        <input type="text" class="txtB">
+        <label for="">Nhập vào c: </label>
+        <input type="text" class="txtC">
+    </div>
+    <div class="btn-group">
+        <button class="btn-1">
+            Tính tổng các số từ a đến b
+        </button>
+        <button class="btn-2">
+            Tính tổng các số lẻ từ a đến b
+        </button>
+        <button class="btn-3">
+            Tìm số nhỏ nhất
+        </button>
+        <button class="btn-4">
+            In các số chia hết cho 3 và lớn hơn 20
+        </button>
+    </div>
+    <div class="text">
+
+    </div>
+</body>
+
+<script>
+    let txtA = document.querySelector('.txtA');
+    let txtB = document.querySelector('.txtB');
+    let txtC = document.querySelector('.txtC');
+    let text = document.querySelector('.text');
+
+    let btn1 = document.querySelector('.btn-1')
+    btn1.onclick = function () {
+        let txtA = +document.querySelector('.txtA').value;
+        let txtB = +document.querySelector('.txtB').value;
+        let sum = 0;
+        for (let i = txtA; i <= txtB; i++) {
+            sum += i
+        }
+
+        text.innerHTML = `<p>Tổng các số từ a đến b là: ${sum}</p>`;
+    }
+
+    let btn2 = document.querySelector('.btn-2');
+    btn2.onclick = function () {
+        let txtA = +document.querySelector('.txtA').value;
+        let txtB = +document.querySelector('.txtB').value;
+        let sum = 0;
+        for (let i = txtA; i <= txtB; i++) {
+            if (i % 2 == 1) {
+                sum += i
+            }
+        }
+        text.innerHTML = `<p>Tổng các số từ a đến b là: ${sum}</p>`;
+    }
+
+    let btn3 = document.querySelector('.btn-3');
+    btn3.onclick = function () {
+        let txtA = +document.querySelector('.txtA').value;
+        let txtB = +document.querySelector('.txtB').value;
+        let txtC = +document.querySelector('.txtC').value;
+        let min = txtA;
+        if (min > txtB) {
+            min = txtB;
+        }
+        if (min > txtC) {
+            min = txtC;
+        }
+        text.innerHTML = `<p>Số nhỏ nhất là: ${min}</p>`;
+    }
+
+    let btn4 = document.querySelector('.btn-4');
+    btn4.onclick = function () {
+        let txtA = +document.querySelector('.txtA').value;
+        let txtB = +document.querySelector('.txtB').value;
+        for (let i = txtA; i <= txtB; i++) {
+            if (i % 3 == 0 && i > 20) {
+                text.innerHTML += `<p>các số chia hết cho 3 và lớn hơn 20 là: ${i}</p>`;
+            } else {
+                text.innerHTML += `Không có số hợp lệ`;
+            }
+        }
+    }
+
+    function tamGiac(a, b, c) {
+        if (a + b > c && b + c > a && a + c > b) {
+            let nuaChuVi = (a + b + c) / 2
+            let dienTich = Math.sqrt(nuaChuVi * (nuaChuVi - a) * (nuaChuVi - b) * (nuaChuVi - c))
+            document.writeln("Diện tích tam giác là: ", dienTich);
+        } else {
+            document.writeln("Tam giác không hợp lệ ");
+        }
+    }
+
+
+    function demSo(arr, x) {
+        let dem = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (x == arr[i]) {
+                dem++;
+            }
+        }
+        document.writeln(`Số ${x} xuất hiện ${dem} lần`);
+    }
+
+
+    function max2(arr) {
+        let max = arr[0];
+        let max2 = 0
+        for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            } else if (max2 < max && max2 < arr[i]) {
+                max2 = arr[i]
+            }
+        }
+        document.writeln(`Số lớn thứ hai là: ${max2}`);
+    }
+</script>
+
+</html>

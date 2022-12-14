@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function tinhBp(a) {
+            alert(a * a);
+        }
+
+        function tamGiac(r) {
+            let PI = 3.14
+            let dienTich = r * r * PI;
+            let chuVi = 2 * r * PI;
+            document.write(`Chu vi hình tròn = ${chuVi.toFixed(2)} <br>`);
+            document.write(`Diện tích hình tròn = ${dienTich} <br>`);
+        }
+
+        function giaiThua(a) {
+            let tich = 1;
+            for (let i = 1; i <= a; i++) {
+                tich *= i;
+            }
+            document.writeln(`Giai thừa của số ${a} = ${tich}`);
+        }
+
+        function checkSo() {
+            let kyTu = prompt("Mời nhập ký tự")
+            let isNumber = false
+            if (!Number.isFinite(a)) {
+                return isNumber;
+            } else return isNumber;
+        }
+
+        function minNumber(a, b, c) {
+            let min;
+            // if (a < b && a < c) {
+            //     min = a;
+            // } else if (b < c && b < a) {
+            //     min = b;
+            // } else {
+            //     min = c;
+            // }
+            a < b && a < c ? min = a : b < c && b < a ? min = b : c;
+            document.writeln(`Số bé nhất là ${min}`);
+        }
+        minNumber(2, 3, 5)
+
+        function soNguyenDuong(a) {
+            return (a > 0 && a % 1 == 0)
+        }
+
+        function daoNguocMang(a) {
+
+            let newArr = [];
+            for (let i = a.length - 1; i >= 0; i--) {
+                newArr.push(a[i])
+            }
+            return newArr;
+        }
+        //alert(daoNguocMang([1, 2, 3, 4, 5]))
+
+        function findChar(a, b) {
+            dem = 0;
+            for (let i = 0; i < a.length; i++) {
+                if (a.indexOf(b) > 0) {
+                    dem++;
+                } else {
+                    return -1
+                }
+                return dem;
+            }
+        }
+        alert(findChar(['a', 'b', 'c', 'd', 'j'], c))
+    </script>
+</body>
+
+</html>
